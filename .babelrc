@@ -3,7 +3,7 @@
     "targets": {
       "node": "6.10"
     }
-  }], "react", "stage-0"],
+  }], "stage-0"],
   "plugins": [
     "transform-runtime"
   ]
