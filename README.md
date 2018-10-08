@@ -11,7 +11,7 @@ $ npm install --save npm-check-install
 ```
 const npmCheckInstall = require('npm-check-install');
 
-npmCheckInstall('antd', { cwd: 'PATH TO CHECK AND INSTALL' });
+npmCheckInstall('antd', { cwd: 'PATH TO CHECK AND INSTALL' // default process.cwd() });
 ```
 
 ## License
