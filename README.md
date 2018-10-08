@@ -1,6 +1,6 @@
 # npm-check-install
 
-Check the specific package already installed or not. If yes, do nothing or install that package
+Check if the specific npm package has already been installed or not. If it has been installed, do nothing; Otherwise, install it.
 
 ## Installation
 
@@ -10,10 +10,10 @@ $ npm install --save npm-check-install
 
 ## Usage
 
-```
+```js
 const npmCheckInstall = require('npm-check-install');
 
-npmCheckInstall('antd', { cwd: 'PATH TO CHECK AND INSTALL' // default process.cwd() })
+npmCheckInstall('antd', { cwd: 'path to check and install' // default process.cwd() })
   .then((hasFound) => {
     // do stuff
   })
