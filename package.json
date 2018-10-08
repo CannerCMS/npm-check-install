@@ -16,6 +16,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "ora": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
