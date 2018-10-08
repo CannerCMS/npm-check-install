@@ -1,6 +1,6 @@
 {
   "name": "npm-check-install",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Automatically check and install npm packages",
   "author": "Canner",
   "main": "./lib/index.js",
