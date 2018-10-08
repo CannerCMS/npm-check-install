@@ -1,18 +1,21 @@
-import checkPkg from './checkPkg';
-import installPkg from './installPkg';
+import checkPkg from "./checkPkg";
+import installPkg from "./installPkg";
 
 const npmCheckInstall = (pkgName, options = {}) => {
-  if (!pkgName) throw new Error(`Package Name is required!`);
+  return new Promise(async (resolve, reject) => {
+    if (!pkgName) reject(`Package Name is required!`);
 
-  checkPkg(
-    pkgName,
-    options,
-    () => {}, // onFound
-    (pkgName, options) => { // onNotFound
-      console.log(`Package "${pkgName}" not found.`);
-      installPkg(pkgName, options);
+    try {
+      const hasFound = await checkPkg(pkgName, options);
+      if (!hasFound) {
+        console.log(`Package "${pkgName}" not found.`);
+        await installPkg(pkgName, options);
+      }
+      resolve(hasFound);
+    } catch (err) {
+      reject(err);
     }
-  );
+  });
 };
 
 module.exports = npmCheckInstall;

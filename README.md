@@ -1,5 +1,7 @@
 # npm-check-install
 
+Check the specific package already installed or not. If yes, do nothing or install that package
+
 ## Installation
 
 ```sh
@@ -11,7 +13,13 @@ $ npm install --save npm-check-install
 ```
 const npmCheckInstall = require('npm-check-install');
 
-npmCheckInstall('antd', { cwd: 'PATH TO CHECK AND INSTALL' // default process.cwd() });
+npmCheckInstall('antd', { cwd: 'PATH TO CHECK AND INSTALL' // default process.cwd() })
+  .then((hasFound) => {
+    // do stuff
+  })
+  .catch((err) => {
+    console.error('ERROR: ', err);
+  });
 ```
 
 ## License
