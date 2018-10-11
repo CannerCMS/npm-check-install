@@ -5,7 +5,7 @@ const MAX_BUFFER_SIZE = 1024 * 10000;
 const checkPkg = (pkgName, options, onFound, onNotFound) => {
   return new Promise((resolve, reject) => {
     exec(
-      "npm ls --json --parseable --depth=0",
+      `npm ls --json --parseable --depth=0 ${pkgName}`,
       { cwd: options.cwd || process.cwd(), maxBuffer: MAX_BUFFER_SIZE },
       (_, stdout) => {
         let pkgJSON;
