@@ -4,13 +4,13 @@ const exec = child_process.exec;
 
 const installPkg = (pkgName, { cwd = process.cwd() }) => {
   return new Promise((resolve, reject) => {
-    const spinner = ora(`Installing "${pkgName}"...`).start();
+    console.log(`Installing "${pkgName}"...`);
     exec(`npm install --save ${pkgName}`, { cwd }, (error, stdout) => {
       if (error) {
-        spinner.fail(error);
+        console.error(error);
         reject(error);
       } else {
-        spinner.succeed(`Package ${pkgName} has been installed! ${stdout}`);
+        console.log(`Package ${pkgName} has been installed! ${stdout}`);
         resolve();
       }
     });
