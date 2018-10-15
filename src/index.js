@@ -1,7 +1,10 @@
 import checkPkg from "./checkPkg";
 import installPkg from "./installPkg";
 
-const npmCheckInstall = (pkgName, options = {}) => {
+const npmCheckInstall = (
+  pkgName,
+  options = { cwd: process.cwd(), global: false }
+) => {
   return new Promise(async (resolve, reject) => {
     if (!pkgName) reject(`Package Name is required!`);
 
