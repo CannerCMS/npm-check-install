@@ -1,22 +1,18 @@
 import child_process from "child_process";
-const ora = require("ora");
+import { info } from "./utils";
 const exec = child_process.exec;
 
 const installPkg = (pkgName, options) => {
   const npmOpt = options.global ? "-g" : "--save";
   return new Promise((resolve, reject) => {
-    const spinner = ora(`Installing "${pkgName}"...`).start();
-    exec(
-      `npm install ${npmOpt} ${pkgName}`,
-      { cwd: options.cwd },
-      (error, stdout) => {
-        if (error) {
-          spinner.fail(error);
-          reject(error);
-        } else {
-          spinner.succeed(`Package ${pkgName} has been installed! ${stdout}`);
-          resolve();
-        }
+    console.log(info(`Installing "${pkgName}"...`));
+    exec(`npm install --save ${pkgName}`, { cwd }, (error, stdout) => {
+      if (error) {
+        console.error(error);
+        reject(error);
+      } else {
+        console.log(info(`Package ${pkgName} has been installed! ${stdout}`));
+        resolve();
       }
     );
   });
