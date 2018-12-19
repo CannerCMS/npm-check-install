@@ -16,7 +16,7 @@ const checkPkg = (pkgName, options) => {
           reject(`Parsing error "npm ls --json... ${err}`);
         }
 
-        if (pkgJSON.dependencies && pkgJSON.dependencies[pkgName])
+        if (pkgJSON && pkgJSON.dependencies && pkgJSON.dependencies[pkgName])
           resolve(true);
         else resolve(false);
       }
