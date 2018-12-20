@@ -13,12 +13,12 @@ const checkPkg = (pkgName, options) => {
         try {
           pkgJSON = JSON.parse(stdout);
         } catch (err) {
-          reject(`Parsing error "npm ls --json... ${err}`);
+          return reject(`Parsing error "npm ls --json... ${err}`);
         }
 
         if (pkgJSON && pkgJSON.dependencies && pkgJSON.dependencies[pkgName])
-          resolve(true);
-        else resolve(false);
+          return resolve(true);
+        else return resolve(false);
       }
     );
   });
